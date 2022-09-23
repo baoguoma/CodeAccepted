@@ -33,14 +33,18 @@ import { openAclDocumentation } from "./features/ACL/openAclDocumentation";
 import { createAclCombinedFile } from "./features/ACL/createAclCombinedFile";
 import { platform } from "os";
 
-function initExtensionPaths(){
-    let extensionPath:string|undefined = vscode.extensions.getExtension('IEEE-NITK.codepal')?.extensionUri.path;
+//my import
+import { showJudgeView } from "./frontend/judgeView";
+//
+
+function initExtensionPaths() {
+    let extensionPath: string | undefined = vscode.extensions.getExtension('IEEE-NITK.codepal')?.extensionUri.path;
 
     //TODO: maybe take this from the user through setttings. They might have their own edited atcoder library version
-    if(extensionPath !== undefined){   
-        const os = platform() === "win32"? OS.windows : OS.linuxMac;
+    if (extensionPath !== undefined) {
+        const os = platform() === "win32" ? OS.windows : OS.linuxMac;
 
-        if(os === OS.windows){
+        if (os === OS.windows) {
             // In windows there is an extra '/' in the beginning that causes problems
             extensionPath = extensionPath.slice(1);
         }
@@ -48,7 +52,7 @@ function initExtensionPaths(){
         extensionPaths.expanderPyPath = extensionPath + '/res/library/expander.py';
         extensionPaths.libraryPath = extensionPath + '/res/library';
     }
-    else{
+    else {
         vscode.window.showErrorMessage('Unable to get path of Codepal extension');
     }
 };
@@ -60,10 +64,10 @@ export function activate(context: vscode.ExtensionContext) {
         : "/";
 
     initExtensionPaths();
-    let aclSupportEnabled:boolean = vscode.workspace
+    let aclSupportEnabled: boolean = vscode.workspace
         .getConfiguration(codepalConfigName)
         .get<boolean>(CodepalConfig.enableAclSupport, false);
-    
+
     const problemProvider = new ProblemsProvider(rootPath);
     const contestsProvider = new ContestsProvider(rootPath);
     const profileProvider = new ProfileProvider(rootPath);
@@ -192,8 +196,14 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     disposable.push(
-        vscode.commands.registerCommand(Command.runTestCases, (param: any) =>
-            runTestCases(String(param))
+        vscode.commands.registerCommand(
+            Command.runTestCases, (param: any, param2: ProblemTreeItem) => {
+                runTestCases(String(param));
+                //my code
+                showJudgeView(param2.problem);
+                //
+            }
+
         )
     );
 
@@ -255,7 +265,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
         )
     );
-        
+
     disposable.push(
         vscode.commands.registerCommand(
             Command.openAclDocumentation,
@@ -269,7 +279,7 @@ export function activate(context: vscode.ExtensionContext) {
             (param: any) => createAclCombinedFile(param)
         )
     );
-    
+
     context.subscriptions.push(...disposable);
 }
 export function deactivate() { }
