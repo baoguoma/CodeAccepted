@@ -75,6 +75,9 @@ export const createProblemDirectory = async (
         return;
     }
     let problemName : string = problem.name;
+
+
+
     problemName = problemName.replace(/[^a-zA-Z 0-9.]+/g,'');
     problemName = problemName.replace(/[^a-zA-Z0-9]/g,'_');
     const problemFolderPath = folderPath + `${problem.index}_${problemName}/`;

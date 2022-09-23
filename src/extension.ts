@@ -144,16 +144,21 @@ export function activate(context: vscode.ExtensionContext) {
     disposable.push(
         vscode.commands.registerCommand(
             Command.openProblemURL,
-            (param: ProblemTreeItem) =>
-                openProblemURL(param.problem)
+            (param: ProblemTreeItem) => {
+                openProblemURL(param.problem);
+
+            }
         )
     );
 
     disposable.push(
         vscode.commands.registerCommand(
             Command.createProblemDirectory,
-            (param: ProblemTreeItem) =>
-                createProblemDirectory(param.problem, rootPath)
+            (param: ProblemTreeItem) => {
+
+                createProblemDirectory(param.problem, rootPath);
+            }
+
         )
     );
 
@@ -197,10 +202,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     disposable.push(
         vscode.commands.registerCommand(
-            Command.runTestCases, (param: any, param2: ProblemTreeItem) => {
+            Command.runTestCases, (param: any) => {
                 runTestCases(String(param));
                 //my code
-                showJudgeView(param2.problem);
+                showJudgeView(String(param));
                 //
             }
 

@@ -7,7 +7,10 @@ export const openProblemURL = async (
     if (problem === undefined) {
         return;
     }
+
+
     try {
+
         vscode.env.openExternal(vscode.Uri.parse(problem.contestLink, true));
         vscode.window.showInformationMessage("Opened problem statement");
     }
