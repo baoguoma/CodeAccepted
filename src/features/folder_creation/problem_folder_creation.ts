@@ -32,9 +32,9 @@ export const getFileExtension = (): string => {
     const compilationLanguage = vscode.workspace
         .getConfiguration(codepalConfigName)
         .get<String>(CodepalConfig.compilationLanguage);
-    
+
     let fileExtension: string;
-    switch(compilationLanguage) {
+    switch (compilationLanguage) {
         case CompilationLanguages.gcc:
             fileExtension = 'c';
             break;
@@ -74,12 +74,12 @@ export const createProblemDirectory = async (
     if (problem === undefined) {
         return;
     }
-    let problemName : string = problem.name;
+    let problemName: string = problem.name;
 
+    
 
-
-    problemName = problemName.replace(/[^a-zA-Z 0-9.]+/g,'');
-    problemName = problemName.replace(/[^a-zA-Z0-9]/g,'_');
+    problemName = problemName.replace(/[^a-zA-Z 0-9.]+/g, '');
+    problemName = problemName.replace(/[^a-zA-Z0-9]/g, '_');
     const problemFolderPath = folderPath + `${problem.index}_${problemName}/`;
 
     const fileExtension = getFileExtension();
@@ -108,15 +108,15 @@ export const createProblemDirectory = async (
             preserveFocus: true,
         });
         vscode.window.showInformationMessage("Problem folder created successfully");
-    } 
+    }
     catch (err) {
         if (err.code === ErrorCodes.folderExists) {
             vscode.window.showErrorMessage("Problem folder already exists.");
-        } else if(err.code === ErrorCodes.noAccessPermission) {
+        } else if (err.code === ErrorCodes.noAccessPermission) {
             vscode.window.showErrorMessage("No access permission.\nPlease open a folder in your workspace.");
-        } else if(err.code === ErrorCodes.noWritePermission) {
+        } else if (err.code === ErrorCodes.noWritePermission) {
             vscode.window.showErrorMessage("No write permission.\nPlease open a folder in your workspace.");
-        } else{
+        } else {
             vscode.window.showErrorMessage("Could not create folder.\nUnknown error occurred");
         }
     }

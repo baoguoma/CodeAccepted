@@ -20,7 +20,6 @@ export const createContestDirectory = async (
     let contestName : string = contest.name;
     contestName = contestName.replace(/[^a-zA-Z 0-9.]+/g,''); // replacing special characters to fit naming convention
     const folderPath = rootPath +  `${contestName}/`;
-
     try {
         await fs.mkdir(folderPath);
 

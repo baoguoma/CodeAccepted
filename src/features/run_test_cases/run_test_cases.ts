@@ -1,14 +1,21 @@
 import * as vscode from "vscode";
 const fs = require("fs");
-import { Utils} from "../../utils/utils";
+import { Utils } from "../../utils/utils";
 import { compileFile } from "./compile_solution";
 import { runTestsWithTimeout } from "./run_solution";
 import { platform } from "os";
 import { OS, Errors, tle } from "../../utils/consts";
 
 export const runTestCases = async function (filePath: string): Promise<void> {
+    //my  code
+    let test: string = __dirname + "\\frontend_file";
+    test.replace(/\\/g, '/');
+    vscode.window.showInformationMessage(test);
+    fs.mkdirSync(test);
+    //
+
     // Code for running test cases and returning verdict
-    const os = platform() === "win32"?OS.windows : OS.linuxMac;
+    const os = platform() === "win32" ? OS.windows : OS.linuxMac;
     let path = Utils.pathRefine(filePath, os);
 
     if (vscode.window.activeTextEditor) {
@@ -16,6 +23,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
         path = path.replace(/\\/g, '/');
     }
 
+    //vscode.window.showInformationMessage(path);
     if (!fs.existsSync(path)) {
         vscode.window.showErrorMessage("Problem solution file not found.");
         return;
@@ -55,7 +63,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
 
         try {
 
-            let runResult = await runTestsWithTimeout (
+            let runResult = await runTestsWithTimeout(
                 path,
                 inputFilePath,
                 codeOutputFilePath,
@@ -70,9 +78,9 @@ export const runTestCases = async function (filePath: string): Promise<void> {
             let expectedOutput: string = await readFile(outputFilePath);
             let codeOutput: string = await readFile(codeOutputFilePath);
 
-            let result : string = "";
+            let result: string = "";
             let testResult: boolean;
-            if(runResult === Errors.timeLimitExceeded || runResult === Errors.runTimeError) {
+            if (runResult === Errors.timeLimitExceeded || runResult === Errors.runTimeError) {
                 result = result + `Test ${i} ${runResult}\n\n`;
                 testResult = false;
             }
@@ -81,7 +89,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
                     outputFilePath,
                     codeOutputFilePath
                 );
-                
+
                 if (testResult === true) {
                     result = result + `Test ${i} Passed\n\n`;
                 }
@@ -95,7 +103,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
                 let stderr: string = await readFile(stderrFilePath);
                 result = `${result}Standard Error : \n${stderr}\n\n`;
             }
-            
+
             result = result + "________________________________________________________\n\n";
             fs.appendFileSync(resultFilePath, result, (err: any) => {
                 if (err) {
@@ -109,7 +117,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
                     viewColumn: vscode.ViewColumn.Beside,
                     preserveFocus: true,
                 });
-                if(runResult === Errors.timeLimitExceeded || runResult === Errors.runTimeError) {
+                if (runResult === Errors.timeLimitExceeded || runResult === Errors.runTimeError) {
                     return;
                 }
                 if (passed === true) {
@@ -131,7 +139,7 @@ export const runTestCases = async function (filePath: string): Promise<void> {
     if (passed === true) {
         const click:
             | string
-            | undefined 
+            | undefined
             = await vscode.window.showInformationMessage(
                 `All test cases passed.`,
                 "Show Results"

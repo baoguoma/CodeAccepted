@@ -516,7 +516,8 @@
         "test-watch": "tsc -watch -p ./",
         "pretest": "yarn run test-compile && yarn run lint",
         "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
+        "test": "node ./out/test/runTest.js",
+        "prewebpack": "webpack --mode development --config ./build/webpack.frontend.config.js"
     },
     "devDependencies": {
         "@types/cheerio": "^0.22.23",
@@ -524,6 +525,8 @@
         "@types/mocha": "^8.0.4",
         "@types/node": "^14.14.43",
         "@types/node-fetch": "^2.5.7",
+        "@types/react": "^18.0.21",
+        "@types/react-dom": "^18.0.6",
         "@types/selenium-webdriver": "^4.0.11",
         "@types/vscode": "^1.52.0",
         "@typescript-eslint/eslint-plugin": "^4.9.0",
@@ -541,7 +544,12 @@
         "axios": "^0.21.1",
         "cheerio": "^1.0.0-rc.10",
         "child_process": "^1.0.2",
+        "copy-webpack-plugin": "^11.0.0",
         "fs": "^0.0.1-security",
-        "node-fetch": "^2.6.1"
+        "node-fetch": "^2.6.1",
+        "os-browserify": "^0.3.0",
+        "path-browserify": "^1.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     }
 }
