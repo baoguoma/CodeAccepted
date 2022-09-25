@@ -10,8 +10,21 @@ export const runTestCases = async function (filePath: string): Promise<void> {
     //my  code
     let test: string = __dirname + "\\frontend_file";
     test.replace(/\\/g, '/');
-    vscode.window.showInformationMessage(test);
-    fs.mkdirSync(test);
+
+    if (!fs.existsSync(test)) {
+        // Do something
+        fs.mkdirSync(test);
+    }
+
+
+    let myfilePath = __dirname + "\\frontend_file\\filePath.txt";
+    myfilePath.replace(/\\/g, '/');
+
+    //vscode.window.showInformationMessage(myfilePath);
+    fs.writeFile(myfilePath, filePath, function (err: any) {
+        if (err) throw err;
+        console.log('File is created successfully.');
+    });
     //
 
     // Code for running test cases and returning verdict

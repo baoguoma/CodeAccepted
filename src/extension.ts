@@ -207,23 +207,23 @@ export function activate(context: vscode.ExtensionContext) {
             Command.runTestCases, (param: any) => {
                 runTestCases(String(param));
                 //my code
-         
-                const options = {
-                    enableScripts: true
-                }
-                const panel = vscode.window.createWebviewPanel(
-                    'catCoding', // 只供内部使用，这个webview的标识
-                    'Judge Results', // 给用户显示的面板标题
-                    vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
-                    {
-                        enableScripts: true, // 启用JS，默认禁用
-                        retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
-                    } // Webview选项。我们稍后会用上
-                );
 
-                //vscode.window.showInformationMessage(onDiskPath.toString());
+                // const options = {
+                //     enableScripts: true
+                // }
+                // const panel = vscode.window.createWebviewPanel(
+                //     'catCoding', // 只供内部使用，这个webview的标识
+                //     'Judge Results', // 给用户显示的面板标题
+                //     vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
+                //     {
+                //         enableScripts: true, // 启用JS，默认禁用
+                //         retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
+                //     } // Webview选项。我们稍后会用上
+                // );
 
-                panel.webview.html = judgeView(context, "src/frontend/index.html");
+                // //vscode.window.showInformationMessage(onDiskPath.toString());
+
+                // panel.webview.html = judgeView(context, "src/frontend/index.html");
 
                 //
             }

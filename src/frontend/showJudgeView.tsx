@@ -25,14 +25,19 @@ import * as ReactDOM from 'react-dom';
 function App() {
 
     let testcasesNum = "1";
-    // var filePath = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document.fileName.toString() : "null";
-    // let test = filePath;
 
+    let filePath = __dirname + "\\frontend_file\\filePath.txt";
+    filePath= filePath.replace(/\//g, '\\');
+    filePath.replace(/\\/g, '/');
+    //vscode.window.showInformationMessage(myfilePath);
+    //let data = fs.readFileSync(filePath);
+    // vscode.window.showInformationMessage(data.toString());
 
     return (
 
         <>
-            <h1></h1>
+            <h1>{filePath}</h1>
+            <h1>123</h1>
             <h2>{testcasesNum}</h2>
         </>
 
