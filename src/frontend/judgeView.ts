@@ -14,7 +14,7 @@ export function judgeView(context: any, templatePath: string) {
         templatePath = templatePath.replace(/\\/g, '/');
     } else {
         templatePath = decodeURIComponent(templatePath);
-        templatePath = templatePath.replace(/ /g, '_');
+        //templatePath = templatePath.replace(/ /g, '_');
     }
 
     const lastIndexOfSlash: number = templatePath.lastIndexOf("/");

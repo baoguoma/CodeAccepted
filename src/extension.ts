@@ -177,7 +177,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             Command.openProblemURL,
             (param: ProblemTreeItem) => {
-                //openProblemURL(param.problem);
+                openProblemURL(param.problem);
                 const options = {
                     enableScripts: true
                 }
@@ -264,11 +264,11 @@ export function activate(context: vscode.ExtensionContext) {
 
                     let problemName: string = param.problem.name;
 
-                    let contestPathArray = getAllDirbyFilename(rootPath.replace(/\\/g, '/'), param.problem.index + '_' + problemName);
+                    let contestPathArray = getAllDirbyFilename(rootPath.replace(/\\/g, '/'), param.problem.index + '_' + problemName.replace(/ /g, '_'));
 
                     let contestPath = contestPathArray[0].replace(/\/\//g, '/');
 
-                    const problemFolderPath = 'file:/' + rootPath.replace(/\\/g, '/') + contestPath + `${param.problem.index}_${problemName}/`;
+                    const problemFolderPath = 'file:/' + contestPath + '/';// + `${param.problem.index}_${problemName}/`;
 
                     panel.webview.html = judgeView(context, encodeURIComponent(problemFolderPath));
                 }
