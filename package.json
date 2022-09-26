@@ -148,7 +148,7 @@
             },
             {
                 "command": "codepal.openProblemURL",
-                "title": "Open Problem Statement",
+                "title": "Open Problem Statement URL",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
                     "light": "res/svg/question_mark.png"
@@ -164,7 +164,7 @@
             },
             {
                 "command": "codepal.openContestProblem",
-                "title": "Open Problem Statement",
+                "title": "Open Contest Problem Statement",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
                     "light": "res/svg/question_mark.png"

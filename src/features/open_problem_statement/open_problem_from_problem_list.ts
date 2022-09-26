@@ -2,12 +2,13 @@ import * as vscode from "vscode";
 import { ProblemClass } from "../../classes/problem";
 
 export const openProblemURL = async (
-    problem: ProblemClass | undefined
+    problem: ProblemClass | undefined,
+    
 ): Promise<void> => {
     if (problem === undefined) {
         return;
     }
-
+    
 
     try {
 

@@ -7,13 +7,14 @@ export const openProblemStatement = (path: string) => {
     try {
 
 
-        path = Utils.pathRefine(path, platform() === "win32" ? OS.windows : OS.linuxMac);
-        console.log(path);
+       path = Utils.pathRefine(path, platform() === "win32" ? OS.windows : OS.linuxMac); 
+        
         if (vscode.window.activeTextEditor) {
             path = vscode.window.activeTextEditor.document.uri.fsPath;
             path = path.replace(/\\/g, '/');
         }
-        vscode.window.showInformationMessage(path);
+        console.log(path);
+        //vscode.window.showInformationMessage(path.toString());
         const jsonPath = path.substr(0, path.lastIndexOf("/")) + `/.problem.json`;
         const jsonData = JSON.parse(fs.readFileSync(jsonPath).toString());
 

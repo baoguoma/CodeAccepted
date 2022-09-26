@@ -98,7 +98,7 @@ export const fetchTestCases = async (
         await fs.mkdir(problemFolderPath);
         getInputOutput(problem)
             .then((data) => {
-                const problemStatementPath = problemFolderPath + `statement.html`;
+                const problemStatementPath = folderPath + `statement.html`;
                 fs.writeFile(problemStatementPath, data.problemText, function (err: any, result: any) {
                     if (err) { vscode.window.showErrorMessage(err); }
                 });

@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import * as path from 'path';
+import fs = require('fs');
 import { ContestsProvider } from "./data_providers/contests/contest_data_provider";
 import { ContestTreeItem } from "./data_providers/contests/contest_tree_item";
 import { ProblemTreeItem } from "./data_providers/problems/problem_tree_item";
@@ -36,7 +37,36 @@ import { platform } from "os";
 
 //my import
 import { judgeView } from "./frontend/judgeView";
+import { Utils } from "./utils/utils";
+import { ContestClass } from "./classes/contest";
+//
+//my function
+function getAllDirbyFilename(dir: string, filename: string) {
+    let dirPath = dir;
+    let files = fs.readdirSync(dirPath); // 该文件夹下的所有文件名称 (文件夹 + 文件)
+    let resultArr: string[] = [];
 
+    files.forEach(file => {
+        let filePath = dir + '/' + file; // 当前文件 | 文件夹的路径
+
+        // 满足查询条件文件
+        if (file === filename) {
+            return resultArr.push(filePath);
+        }
+
+        // 继续深搜文件夹
+        if (fs.statSync(filePath).isDirectory()) {
+            resultArr.push(...getAllDirbyFilename(filePath, filename));
+        }
+
+    })
+
+    return resultArr;
+}
+
+function returnWebview(param: any) {
+
+}
 //
 
 function initExtensionPaths() {
@@ -147,8 +177,33 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             Command.openProblemURL,
             (param: ProblemTreeItem) => {
-                openProblemURL(param.problem);
+                //openProblemURL(param.problem);
+                const options = {
+                    enableScripts: true
+                }
+                const panel = vscode.window.createWebviewPanel(
+                    'catCoding', // 只供内部使用，这个webview的标识
+                    'Problem Statement', // 给用户显示的面板标题
+                    vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
+                    {
+                        enableScripts: true, // 启用JS，默认禁用
+                        retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
+                    } // Webview选项。我们稍后会用上
+                );
 
+
+                if (param.problem != undefined) {
+
+                    let problemName: string = param.problem.name;
+
+                    // let contestPathArray = getAllDirbyFilename(rootPath.replace(/\\/g, '/'), param.problem.index + '_' + problemName);
+
+                    // let contestPath = contestPathArray[0].replace(/\/\//g, '/');
+
+                    const problemFolderPath = 'file:/' + rootPath.replace(/\\/g, '/') + `${param.problem.index}_${problemName}/`;
+
+                    panel.webview.html = judgeView(context, encodeURIComponent(problemFolderPath));
+                }
             }
         )
     );
@@ -189,8 +244,37 @@ export function activate(context: vscode.ExtensionContext) {
     disposable.push(
         vscode.commands.registerCommand(
             Command.openContestProblem,
-            (param: ContestTreeItem) =>
-                openProblemURL(param.problem)
+            (param: ContestTreeItem) => {
+                //openProblemURL(param.problem);
+                const options = {
+                    enableScripts: true
+                }
+                const panel = vscode.window.createWebviewPanel(
+                    'catCoding', // 只供内部使用，这个webview的标识
+                    'Problem Statement', // 给用户显示的面板标题
+                    vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
+                    {
+                        enableScripts: true, // 启用JS，默认禁用
+                        retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
+                    } // Webview选项。我们稍后会用上
+                );
+
+
+                if (param.problem != undefined) {
+
+                    let problemName: string = param.problem.name;
+
+                    let contestPathArray = getAllDirbyFilename(rootPath.replace(/\\/g, '/'), param.problem.index + '_' + problemName);
+
+                    let contestPath = contestPathArray[0].replace(/\/\//g, '/');
+
+                    const problemFolderPath = 'file:/' + rootPath.replace(/\\/g, '/') + contestPath + `${param.problem.index}_${problemName}/`;
+
+                    panel.webview.html = judgeView(context, encodeURIComponent(problemFolderPath));
+                }
+
+            }
+
         )
     );
 
@@ -206,26 +290,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             Command.runTestCases, (param: any) => {
                 runTestCases(String(param));
-                //my code
 
-                // const options = {
-                //     enableScripts: true
-                // }
-                // const panel = vscode.window.createWebviewPanel(
-                //     'catCoding', // 只供内部使用，这个webview的标识
-                //     'Judge Results', // 给用户显示的面板标题
-                //     vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
-                //     {
-                //         enableScripts: true, // 启用JS，默认禁用
-                //         retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
-                //     } // Webview选项。我们稍后会用上
-                // );
-
-                // //vscode.window.showInformationMessage(onDiskPath.toString());
-
-                // panel.webview.html = judgeView(context, "src/frontend/index.html");
-
-                //
             }
 
         )
@@ -234,7 +299,32 @@ export function activate(context: vscode.ExtensionContext) {
     disposable.push(
         vscode.commands.registerCommand(
             Command.openProblemStatement,
-            (param: any) => openProblemStatement(String(param))
+            (param: any) => {
+                //openProblemStatement(String(param))
+                //my code
+
+                const options = {
+                    enableScripts: true
+                }
+                const panel = vscode.window.createWebviewPanel(
+                    'catCoding', // 只供内部使用，这个webview的标识
+                    'Problem Statement', // 给用户显示的面板标题
+                    vscode.ViewColumn.Two, // 给新的webview面板一个编辑器视图
+                    {
+                        enableScripts: true, // 启用JS，默认禁用
+                        retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
+                    } // Webview选项。我们稍后会用上
+                );
+
+
+                panel.webview.html = judgeView(context, String(param));
+
+
+            }
+
+
+
+
         )
     );
     disposable.push(
