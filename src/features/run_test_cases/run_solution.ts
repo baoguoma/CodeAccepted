@@ -109,7 +109,7 @@ export const runTestsWithTimeout = async (
                 tle.tleFlag = true;
                 vscode.window.showErrorMessage("Time limit exceeded!!");
                 let killCommand: string;
-                killCommand = (os === OS.windows) 
+                killCommand = (os === OS.windows)
                     ? `taskkill /F /IM ${executable}`
                     : `pkill -9 ${executable}`;
                 // Kill the executing process
@@ -143,7 +143,7 @@ export const runTests = async (
         return new Promise(async (resolve, reject) => {
             exec(runCommand, async (error: any, stdout: any, stderr: any) => {
                 if (error) {
-                    if(tle.tleFlag) {
+                    if (tle.tleFlag) {
                         return;
                     }
                     console.log(`Runtime Error: ${error}`);

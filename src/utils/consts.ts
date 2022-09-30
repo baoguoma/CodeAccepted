@@ -1,3 +1,5 @@
+import { hostname } from "os";
+
 export const enum Command {
     helloWorld = "codepal.helloWorld",
     setEditorLayout = "vscode.setEditorLayout",
@@ -54,7 +56,7 @@ export const enum CompilationLanguages {
     python = "python",
     python2 = "python2",
     python3 = "python3",
-    kotlin =  "kotlin",
+    kotlin = "kotlin",
     haskell = "haskell"
 
 }
@@ -106,7 +108,7 @@ export const enum ErrorCodes {
     folderExists = "EEXIST",
     notFound = "ENOENT",
     noAccessPermission = "EACCES",
-    noWritePermission = "EROFS" 
+    noWritePermission = "EROFS"
 }
 export const enum Errors {
     timeLimitExceeded = "Time limit exceeded",

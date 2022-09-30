@@ -37,8 +37,8 @@ import { platform } from "os";
 
 //my import
 import { judgeView } from "./frontend/judgeView";
-import { Utils } from "./utils/utils";
-import { ContestClass } from "./classes/contest";
+import { newSubmitProblem } from "./submit/submit";
+// import { test } from "./submit/test"
 //
 //my function
 function getAllDirbyFilename(dir: string, filename: string) {
@@ -246,6 +246,8 @@ export function activate(context: vscode.ExtensionContext) {
             Command.openContestProblem,
             (param: ContestTreeItem) => {
                 //openProblemURL(param.problem);
+
+
                 const options = {
                     enableScripts: true
                 }
@@ -265,12 +267,17 @@ export function activate(context: vscode.ExtensionContext) {
                     let problemName: string = param.problem.name;
 
                     let contestPathArray = getAllDirbyFilename(rootPath.replace(/\\/g, '/'), param.problem.index + '_' + problemName.replace(/ /g, '_'));
-
                     let contestPath = contestPathArray[0].replace(/\/\//g, '/');
+                    try {
+                        if (fs.existsSync(contestPath)) {
+                            //file exists
+                            const problemFolderPath = 'file:/' + contestPath + '/';// + `${param.problem.index}_${problemName}/`;
 
-                    const problemFolderPath = 'file:/' + contestPath + '/';// + `${param.problem.index}_${problemName}/`;
-
-                    panel.webview.html = judgeView(context, encodeURIComponent(problemFolderPath));
+                            panel.webview.html = judgeView(context, encodeURIComponent(problemFolderPath));
+                        }
+                    } catch (err) {
+                        vscode.window.showErrorMessage("Could not open problem statment, please create problem/contest folder at first");
+                    }
                 }
 
             }
@@ -331,7 +338,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             Command.submitProblem,
             async (param: any) => {
-                await submitProblem(String(param));
+                //await submitProblem(String(param));
+                newSubmitProblem(String(param), context);
+                // await test();
             }
         )
     );
