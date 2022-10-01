@@ -229,7 +229,7 @@
                 {
                     "id": "codepal",
                     "title": "CodeAccepted",
-                    "icon": "res/svg/path.svg"
+                    "icon": "res/svg/graph.svg"
                 }
             ]
         },
