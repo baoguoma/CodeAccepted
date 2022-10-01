@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import { fetchUserInfoApi } from "../../features/user_profile/fetch_user_info_api";
 import {
-    CodepalConfig,
-    codepalConfigName,
+    codeacceptedConfig,
+    codeacceptedConfigName,
     Command,
     ProfileTreeEnum,
 } from "../../utils/consts";
@@ -31,8 +31,8 @@ implements vscode.TreeDataProvider<ProfileTreeItem> {
         element?: ProfileTreeItem
     ): vscode.ProviderResult<ProfileTreeItem[]> {
         const codeforcesHandle = vscode.workspace
-            .getConfiguration(codepalConfigName)
-            .get<string>(CodepalConfig.codeforcesHandle);
+            .getConfiguration(codeacceptedConfigName)
+            .get<string>(codeacceptedConfig.codeforcesHandle);
         if (codeforcesHandle) {
             return fetchUserInfoApi(codeforcesHandle);
         }

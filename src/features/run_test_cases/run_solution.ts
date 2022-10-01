@@ -5,8 +5,8 @@ import { reportError } from "./report_error";
 import { Errors, OS, tle } from "../../utils/consts";
 
 import {
-    CodepalConfig,
-    codepalConfigName,
+    codeacceptedConfig,
+    codeacceptedConfigName,
     CompilationFlags,
     CompilationLanguages,
 } from "../../utils/consts";
@@ -31,8 +31,8 @@ export const runTestsWithTimeout = async (
     let executable: string;
 
     const compilationLanguage = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.compilationLanguage);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.compilationLanguage);
 
     switch (compilationLanguage) {
         case CompilationLanguages.gcc:
@@ -55,7 +55,7 @@ export const runTestsWithTimeout = async (
         case CompilationLanguages.python2:
         case CompilationLanguages.python3:
             const compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.python);
             executable = (os === OS.windows)
                 ? `python.exe`

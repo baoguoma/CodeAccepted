@@ -1,5 +1,5 @@
 {
-    "name": "codepal",
+    "name": "codeaccepted",
     "displayName": "CodeAccepted",
     "description": "A VS Code extension to help codeforces users upsolve and give contests conveniently and swiftly",
     "license": "GPL-3.0-or-later",
@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/baoguoma/CodeAccepted"
     },
-    "publisher": "kebin.peng",
+    "publisher": "kebin-peng",
     "icon": "res/svg/logo.png",
     "version": "1.7.0",
     "engines": {
@@ -24,11 +24,11 @@
     "contributes": {
         "commands": [
             {
-                "command": "codepal.helloWorld",
+                "command": "codeaccepted.helloWorld",
                 "title": "Hello World"
             },
             {
-                "command": "codepal.reloadContests",
+                "command": "codeaccepted.reloadContests",
                 "title": "Refresh contest list",
                 "icon": {
                     "dark": "res/svg/refresh.svg",
@@ -36,7 +36,7 @@
                 }
             },
             {
-                "command": "codepal.getProblemFilters",
+                "command": "codeaccepted.getProblemFilters",
                 "title": "Filter",
                 "icon": {
                     "dark": "res/svg/filter.png",
@@ -44,7 +44,7 @@
                 }
             },
             {
-                "command": "codepal.reloadProblems",
+                "command": "codeaccepted.reloadProblems",
                 "title": "Refresh problem list",
                 "icon": {
                     "dark": "res/svg/refresh.svg",
@@ -52,7 +52,7 @@
                 }
             },
             {
-                "command": "codepal.copyContestURL",
+                "command": "codeaccepted.copyContestURL",
                 "title": "Copy Contest URL",
                 "icon": {
                     "dark": "res/svg/copy.png",
@@ -60,7 +60,7 @@
                 }
             },
             {
-                "command": "codepal.createContestDirectory",
+                "command": "codeaccepted.createContestDirectory",
                 "title": "Create Contest Folder",
                 "icon": {
                     "dark": "res/svg/CreateFolder.png",
@@ -68,7 +68,7 @@
                 }
             },
             {
-                "command": "codepal.manualContestFolderCreation",
+                "command": "codeaccepted.manualContestFolderCreation",
                 "title": "Manually Create Contest Folder",
                 "icon": {
                     "dark": "res/svg/CreateFolder.png",
@@ -76,7 +76,7 @@
                 }
             },
             {
-                "command": "codepal.registerContest",
+                "command": "codeaccepted.registerContest",
                 "title": "Register for Contest",
                 "icon": {
                     "dark": "res/svg/registration.png",
@@ -84,7 +84,7 @@
                 }
             },
             {
-                "command": "codepal.openContest",
+                "command": "codeaccepted.openContest",
                 "title": "Open Contest Page",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
@@ -92,7 +92,7 @@
                 }
             },
             {
-                "command": "codepal.copyProblemURL",
+                "command": "codeaccepted.copyProblemURL",
                 "title": "Copy Problem URL",
                 "icon": {
                     "dark": "res/svg/copy.png",
@@ -100,7 +100,7 @@
                 }
             },
             {
-                "command": "codepal.createProblemDirectory",
+                "command": "codeaccepted.createProblemDirectory",
                 "title": "Create Problem Folder",
                 "icon": {
                     "dark": "res/svg/CreateFolder.png",
@@ -108,7 +108,7 @@
                 }
             },
             {
-                "command": "codepal.manualProblemFolderCreation",
+                "command": "codeaccepted.manualProblemFolderCreation",
                 "title": "Manually Create Problem Folder",
                 "icon": {
                     "dark": "res/svg/CreateFolder.png",
@@ -116,7 +116,7 @@
                 }
             },
             {
-                "command": "codepal.createContestProblemDirectory",
+                "command": "codeaccepted.createContestProblemDirectory",
                 "title": "Create only this problem Folder",
                 "icon": {
                     "dark": "res/svg/CreateFolder.png",
@@ -124,7 +124,7 @@
                 }
             },
             {
-                "command": "codepal.runTestCases",
+                "command": "codeaccepted.runTestCases",
                 "title": "Run Test Cases",
                 "icon": {
                     "dark": "res/svg/play_button.png",
@@ -132,7 +132,7 @@
                 }
             },
             {
-                "command": "codepal.addTestCases",
+                "command": "codeaccepted.addTestCases",
                 "title": "Add Test Cases",
                 "icon": {
                     "dark": "res/svg/add_TestCase.png",
@@ -140,7 +140,7 @@
                 }
             },
             {
-                "command": "codepal.openProblemStatement",
+                "command": "codeaccepted.openProblemStatement",
                 "title": "Open Problem Statement",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
@@ -148,7 +148,7 @@
                 }
             },
             {
-                "command": "codepal.openProblemURL",
+                "command": "codeaccepted.openProblemURL",
                 "title": "Open Problem Statement URL",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
@@ -156,7 +156,7 @@
                 }
             },
             {
-                "command": "codepal.copyContestProblemURL",
+                "command": "codeaccepted.copyContestProblemURL",
                 "title": "Copy Problem URL",
                 "icon": {
                     "dark": "res/svg/copy.png",
@@ -164,7 +164,7 @@
                 }
             },
             {
-                "command": "codepal.openContestProblem",
+                "command": "codeaccepted.openContestProblem",
                 "title": "Open Contest Problem Statement",
                 "icon": {
                     "dark": "res/svg/question_mark.png",
@@ -172,7 +172,7 @@
                 }
             },
             {
-                "command": "codepal.submitProblem",
+                "command": "codeaccepted.submitProblem",
                 "title": "Submit Problem",
                 "icon": {
                     "dark": "res/svg/submit.svg",
@@ -180,7 +180,7 @@
                 }
             },
             {
-                "command": "codepal.createStressTestingFiles",
+                "command": "codeaccepted.createStressTestingFiles",
                 "title": "Create Stress Testing Files",
                 "icon": {
                     "dark": "res/svg/createStressTestingFiles.png",
@@ -188,7 +188,7 @@
                 }
             },
             {
-                "command": "codepal.createStressTestingFiles",
+                "command": "codeaccepted.createStressTestingFiles",
                 "title": "Create Stress Testing Files",
                 "icon": {
                     "dark": "res/svg/createStressTestingFiles.png",
@@ -196,7 +196,7 @@
                 }
             },
             {
-                "command": "codepal.stressTest",
+                "command": "codeaccepted.stressTest",
                 "title": "Stress Test",
                 "icon": {
                     "dark": "res/svg/stressTest.png",
@@ -204,7 +204,7 @@
                 }
             },
             {
-                "command": "codepal.createAclCombinedFile",
+                "command": "codeaccepted.createAclCombinedFile",
                 "title": "Create ACL combined file",
                 "icon": {
                     "dark": "res/svg/createAclCombinedFile.png",
@@ -212,7 +212,7 @@
                 }
             },
             {
-                "command": "codepal.openAclDocumentation",
+                "command": "codeaccepted.openAclDocumentation",
                 "title": "Open ACL Documentation",
                 "icon": {
                     "dark": "res/svg/openAclDocumentation.png",
@@ -220,37 +220,37 @@
                 }
             },
             {
-                "command": "codePal.stopStressTesting",
+                "command": "codeaccepted.stopStressTesting",
                 "title": "Stop Stress Testing"
             }
         ],
         "viewsContainers": {
             "activitybar": [
                 {
-                    "id": "codepal",
+                    "id": "codeaccepted",
                     "title": "CodeAccepted",
                     "icon": "res/svg/graph.svg"
                 }
             ]
         },
         "views": {
-            "codepal": [
+            "codeaccepted": [
                 {
-                    "id": "codepalContests",
+                    "id": "codeacceptedContests",
                     "name": "Contests",
                     "icon": "res/svg/icon.svg",
                     "contextualTitle": "Contests",
                     "visibility": "collapsed"
                 },
                 {
-                    "id": "codepalProblems",
+                    "id": "codeacceptedProblems",
                     "name": "Problems",
                     "icon": "res/svg/icon.svg",
                     "contextualTitle": "Problems",
                     "visibility": "collapsed"
                 },
                 {
-                    "id": "codepalProfile",
+                    "id": "codeacceptedProfile",
                     "name": "User Profile",
                     "icon": "res/svg/icon.svg",
                     "contextualTitle": "Profile",
@@ -261,130 +261,130 @@
         "menus": {
             "view/title": [
                 {
-                    "command": "codepal.reloadContests",
-                    "when": "view == codepalContests",
+                    "command": "codeaccepted.reloadContests",
+                    "when": "view == codeacceptedContests",
                     "group": "navigation"
                 },
                 {
-                    "command": "codepal.manualContestFolderCreation",
-                    "when": "view == codepalContests",
+                    "command": "codeaccepted.manualContestFolderCreation",
+                    "when": "view == codeacceptedContests",
                     "group": "navigation"
                 },
                 {
-                    "command": "codepal.getProblemFilters",
-                    "when": "view == codepalProblems",
+                    "command": "codeaccepted.getProblemFilters",
+                    "when": "view == codeacceptedProblems",
                     "group": "navigation"
                 },
                 {
-                    "command": "codepal.reloadProblems",
-                    "when": "view == codepalProblems",
+                    "command": "codeaccepted.reloadProblems",
+                    "when": "view == codeacceptedProblems",
                     "group": "navigation"
                 },
                 {
-                    "command": "codepal.manualProblemFolderCreation",
-                    "when": "view == codepalProblems",
+                    "command": "codeaccepted.manualProblemFolderCreation",
+                    "when": "view == codeacceptedProblems",
                     "group": "navigation"
                 }
             ],
             "view/item/context": [
                 {
-                    "command": "codepal.copyContestURL",
-                    "when": "view == codepalContests && viewItem==contest",
+                    "command": "codeaccepted.copyContestURL",
+                    "when": "view == codeacceptedContests && viewItem==contest",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.openContest",
-                    "when": "view == codepalContests && viewItem==contest",
+                    "command": "codeaccepted.openContest",
+                    "when": "view == codeacceptedContests && viewItem==contest",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.createContestDirectory",
-                    "when": "view == codepalContests && viewItem==contest",
+                    "command": "codeaccepted.createContestDirectory",
+                    "when": "view == codeacceptedContests && viewItem==contest",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.registerContest",
-                    "when": "view == codepalContests && viewItem==FutureContest",
+                    "command": "codeaccepted.registerContest",
+                    "when": "view == codeacceptedContests && viewItem==FutureContest",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.createProblemDirectory",
-                    "when": "view == codepalProblems && viewItem==problem",
+                    "command": "codeaccepted.createProblemDirectory",
+                    "when": "view == codeacceptedProblems && viewItem==problem",
                     "group": "inline"
                 },
                 {
-                    "when": "view == codepalProblems && viewItem==problem",
-                    "command": "codepal.openProblemURL",
+                    "when": "view == codeacceptedProblems && viewItem==problem",
+                    "command": "codeaccepted.openProblemURL",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.copyProblemURL",
-                    "when": "view == codepalProblems && viewItem==problem",
+                    "command": "codeaccepted.copyProblemURL",
+                    "when": "view == codeacceptedProblems && viewItem==problem",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.createContestProblemDirectory",
-                    "when": "view == codepalContests && viewItem==contestproblem",
+                    "command": "codeaccepted.createContestProblemDirectory",
+                    "when": "view == codeacceptedContests && viewItem==contestproblem",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.copyContestProblemURL",
-                    "when": "view == codepalContests && viewItem==contestproblem",
+                    "command": "codeaccepted.copyContestProblemURL",
+                    "when": "view == codeacceptedContests && viewItem==contestproblem",
                     "group": "inline"
                 },
                 {
-                    "command": "codepal.openContestProblem",
-                    "when": "view == codepalContests && viewItem==contestproblem",
+                    "command": "codeaccepted.openContestProblem",
+                    "when": "view == codeacceptedContests && viewItem==contestproblem",
                     "group": "inline"
                 }
             ],
             "editor/title": [
                 {
                     "when": "resourceExtname == .hs || resourceExtname == .kt || resourceExtname == .cpp || resourceExtname == .c || resourceExtname == .py || resourceExtname == .java",
-                    "command": "codepal.runTestCases",
+                    "command": "codeaccepted.runTestCases",
                     "group": "navigation"
                 },
                 {
                     "when": "resourceExtname == .hs || resourceExtname == .kt || resourceExtname == .cpp || resourceExtname == .c || resourceExtname == .py || resourceExtname == .java",
-                    "command": "codepal.addTestCases",
+                    "command": "codeaccepted.addTestCases",
                     "group": "navigation"
                 },
                 {
                     "when": "resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.hs$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.kt$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.cpp$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.c$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.py$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.java$/'",
-                    "command": "codepal.submitProblem",
+                    "command": "codeaccepted.submitProblem",
                     "group": "navigation"
                 },
                 {
                     "when": "resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.hs$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.kt$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.cpp$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.c$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.py$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.java$/'",
-                    "command": "codepal.openProblemStatement",
+                    "command": "codeaccepted.openProblemStatement",
                     "group": "navigation"
                 },
                 {
                     "when": "resourceFilename != gen.hs && resourceFilename != brute.hs && resourceExtname == .hs || resourceFilename != gen.kt && resourceFilename != brute.kt && resourceExtname == .kt || resourceFilename != gen.cpp && resourceFilename != brute.cpp && resourceExtname == .cpp || resourceFilename != gen.c && resourceFilename != brute.c && resourceExtname == .c || resourceFilename != gen.py && resourceFilename != brute.py && resourceExtname == .py || resourceFilename != gen.java && resourceFilename != brute.java && resourceExtname == .java",
-                    "command": "codepal.stressTest",
+                    "command": "codeaccepted.stressTest",
                     "group": "navigation"
                 },
                 {
                     "when": "resourceFilename != gen.kt && resourceFilename != brute.kt && resourceExtname == .kt || resourceFilename != gen.cpp && resourceFilename != brute.cpp && resourceExtname == .cpp || resourceFilename != gen.c && resourceFilename != brute.c && resourceExtname == .c || resourceFilename != gen.py && resourceFilename != brute.py && resourceExtname == .py || resourceFilename != gen.java && resourceFilename != brute.java && resourceExtname == .java",
-                    "command": "codepal.createStressTestingFiles",
+                    "command": "codeaccepted.createStressTestingFiles",
                     "group": "navigation"
                 },
                 {
                     "when": "resourceFilename != combined.cpp && resourceExtname == .cpp",
-                    "command": "codepal.createAclCombinedFile",
+                    "command": "codeaccepted.createAclCombinedFile",
                     "group": "navigation"
                 },
                 {
-                    "when": "resourceExtname == .cpp && config.codepal.enableAclDocumentationButton",
-                    "command": "codepal.openAclDocumentation",
+                    "when": "resourceExtname == .cpp && config.codeaccepted.enableAclDocumentationButton",
+                    "command": "codeaccepted.openAclDocumentation",
                     "group": "navigation"
                 }
             ]
         },
         "configuration": {
-            "title": "codepal",
+            "title": "codeaccepted",
             "properties": {
-                "codepal.compilationLanguage": {
+                "codeaccepted.compilationLanguage": {
                     "type": "string",
                     "default": "g++",
                     "group": "language",
@@ -400,74 +400,74 @@
                     ],
                     "markdownDescription": "Note : Incase of python please choose the python prefix you would generally use on your system to run"
                 },
-                "codepal.codeTemplatePath": {
+                "codeaccepted.codeTemplatePath": {
                     "type": "string",
                     "default": "",
                     "markdownDescription": "The path of the `template` that has to be used when a folder is created"
                 },
-                "codepal.generatorTemplatePath": {
+                "codeaccepted.generatorTemplatePath": {
                     "type": "string",
                     "default": "",
                     "markdownDescription": "The path of the generator `template` that has to be used when stress testing is invoked"
                 },
-                "codepal.g++ CompilationFlags": {
+                "codeaccepted.g++ CompilationFlags": {
                     "type": "string",
                     "default": "-std=c++14",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to g++"
                 },
-                "codepal.gccCompilationFlags": {
+                "codeaccepted.gccCompilationFlags": {
                     "type": "string",
                     "default": "",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to gcc"
                 },
-                "codepal.pythonCompilationFlags": {
+                "codeaccepted.pythonCompilationFlags": {
                     "type": "string",
                     "default": "",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to python and python3"
                 },
-                "codepal.javaCompilationFlags": {
+                "codeaccepted.javaCompilationFlags": {
                     "type": "string",
                     "default": "",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to java"
                 },
-                "codepal.kotlinCompilationFlags": {
+                "codeaccepted.kotlinCompilationFlags": {
                     "type": "string",
                     "default": "",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to kotlin"
                 },
-                "codepal.haskellCompilationFlags": {
+                "codeaccepted.haskellCompilationFlags": {
                     "type": "string",
                     "default": "",
                     "group": "language",
                     "markdownDescription": "Space separated additional compilation flags passed to haskell"
                 },
-                "codepal.codeforcesHandle": {
+                "codeaccepted.codeforcesHandle": {
                     "type": "string",
                     "default": "",
                     "group": "profile",
                     "markdownDescription": "Specify your handle on Codeforces to get a more personalized environment"
                 },
-                "codepal.numberOfStressTestingTestCases": {
+                "codeaccepted.numberOfStressTestingTestCases": {
                     "type": "number",
                     "default": "",
                     "markdownDescription": "Enter number of testcases the stress testing generator should make. [10-10000]"
                 },
-                "codepal.enableAclSupport": {
+                "codeaccepted.enableAclSupport": {
                     "type": "boolean",
                     "default": "",
                     "markdownDescription": "Enable Atcoder Library support"
                 },
-                "codepal.enableAclDocumentationButton": {
+                "codeaccepted.enableAclDocumentationButton": {
                     "type": "boolean",
                     "default": "",
                     "markdownDescription": "Enable button that links to ACL documentation website"
                 },
-                "codepal.hostname": {
+                "codeaccepted.hostname": {
                     "title": "Default Hostname",
                     "type": "string",
                     "description": "hostname for codeforces, add CodeForces mirror hostname here incase of problem with orignal",
@@ -477,37 +477,37 @@
         },
         "keybindings": [
             {
-                "command": "codepal.addTestCases",
+                "command": "codeaccepted.addTestCases",
                 "key": "ctrl+alt+a",
                 "mac": "cmd+alt+a",
                 "when": "resourceExtname == .hs || resourceExtname == .kt || resourceExtname == .cpp || resourceExtname == .c || resourceExtname == .py || resourceExtname == .java"
             },
             {
-                "command": "codepal.runTestCases",
+                "command": "codeaccepted.runTestCases",
                 "key": "ctrl+alt+r",
                 "mac": "cmd+alt+r",
                 "when": "resourceExtname == .hs || resourceExtname == .kt || resourceExtname == .cpp || resourceExtname == .c || resourceExtname == .py || resourceExtname == .java"
             },
             {
-                "command": "codepal.submitProblem",
+                "command": "codeaccepted.submitProblem",
                 "key": "ctrl+alt+s",
                 "mac": "cmd+alt+s",
                 "when": "resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.hs$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.kt$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.cpp$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.c$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.py$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.java$/'"
             },
             {
-                "command": "codepal.openProblemStatement",
+                "command": "codeaccepted.openProblemStatement",
                 "key": "ctrl+alt+o",
                 "mac": "cmd+alt+o",
                 "when": "resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.hs$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.kt$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.cpp$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.c$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.py$/' || resource =~ '/.*[A-Z][1-9]?_.*/[A-Z][1-9]?_.*\\.java$/'"
             },
             {
-                "command": "codepal.stopStressTesting",
+                "command": "codeaccepted.stopStressTesting",
                 "key": "ctrl+shift+z",
                 "mac": "cmd+shift+z",
                 "when": "editorTextFocus"
             },
             {
-                "command": "codepal.stressTest",
+                "command": "codeaccepted.stressTest",
                 "key": "ctrl+alt+z",
                 "mac": "cmd+alt+z",
                 "when": "resourceFilename != gen.kt && resourceFilename != brute.kt && resourceExtname == .kt || resourceFilename != gen.cpp && resourceFilename != brute.cpp && resourceExtname == .cpp || resourceFilename != gen.c && resourceFilename != brute.c && resourceExtname == .c || resourceFilename != gen.py && resourceFilename != brute.py && resourceExtname == .py || resourceFilename != gen.java && resourceFilename != brute.java && resourceExtname == .java"

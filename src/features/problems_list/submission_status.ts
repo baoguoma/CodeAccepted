@@ -3,8 +3,8 @@ import * as vscode from "vscode";
 import { ProblemClass } from "../../classes/problem";
 
 import {
-    CodepalConfig,
-    codepalConfigName,
+    codeacceptedConfig,
+    codeacceptedConfigName,
     SubmissionStatus
 } from "../../utils/consts";
 
@@ -13,8 +13,8 @@ export const updateSubmissionStatus = async (
 ): Promise<ProblemClass[]> => {
 
     const codeforcesHandle: String | undefined = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.codeforcesHandle);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.codeforcesHandle);
 
     if(codeforcesHandle === "") {
         return problems;

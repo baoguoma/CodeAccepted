@@ -3,14 +3,14 @@ import { ProblemClass } from "../../classes/problem";
 import { promises as fs } from "fs";
 import { readFileSync as fs_readFileSync } from "fs";
 import { fetchTestCases } from "./test_cases_fetch";
-import { CodepalConfig, codepalConfigName, CompilationLanguages, ErrorCodes } from "../../utils/consts";
+import { codeacceptedConfig, codeacceptedConfigName, CompilationLanguages, ErrorCodes } from "../../utils/consts";
 
 let templateCode = ""; // will hold the code that is stored in the path given in settings
 
 export const getTemplateCode = async () => {
     const templatePath = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<string>(CodepalConfig.codeTemplatePath);
+        .getConfiguration(codeacceptedConfigName)
+        .get<string>(codeacceptedConfig.codeTemplatePath);
     let data = "";
     try {
         if (templatePath) {
@@ -30,8 +30,8 @@ export const getTemplateCode = async () => {
 export const getFileExtension = (): string => {
 
     const compilationLanguage = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.compilationLanguage);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.compilationLanguage);
 
     let fileExtension: string;
     switch (compilationLanguage) {

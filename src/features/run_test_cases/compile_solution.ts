@@ -4,8 +4,8 @@ import { exec } from "child_process";
 import { reportError } from "./report_error";
 import { platform } from "os";
 import {
-    codepalConfigName,
-    CodepalConfig,
+    codeacceptedConfigName,
+    codeacceptedConfig,
     CompilationFlags,
     CompilationLanguages,
     extensionPaths
@@ -28,8 +28,8 @@ export const compileFile = async (
     }
 
     const compilationLanguage = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.compilationLanguage);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.compilationLanguage);
 
     if (
         compilationLanguage === CompilationLanguages.python ||
@@ -42,15 +42,15 @@ export const compileFile = async (
     }
 
     let aclSupportEnabled:boolean = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<boolean>(CodepalConfig.enableAclSupport, false);
+        .getConfiguration(codeacceptedConfigName)
+        .get<boolean>(codeacceptedConfig.enableAclSupport, false);
                         
     let compileCommand: string;
     let compilationFlags: String | undefined;
     switch (compilationLanguage) {
         case CompilationLanguages.cpp:
             compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.cpp);
             
             if(aclSupportEnabled === true){
@@ -67,7 +67,7 @@ export const compileFile = async (
         
         case CompilationLanguages.gcc:
             compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.gcc);
             
             if(platform() === "win32"){
@@ -80,20 +80,20 @@ export const compileFile = async (
 
         case CompilationLanguages.java:
             compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.java);
             compileCommand = `javac "${solutionFilePath}" ${compilationFlags}`;
             break;
 
         case CompilationLanguages.kotlin:
             compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.kotlin);
             compileCommand = `kotlinc "${solutionFilePath}" -include-runtime -d "${testsFolderPath}${outputFileName}.jar" ${compilationFlags}`;
             break;
         case CompilationLanguages.haskell:
             compilationFlags = vscode.workspace
-                .getConfiguration(codepalConfigName)
+                .getConfiguration(codeacceptedConfigName)
                 .get<String>(CompilationFlags.haskell);
             if(platform() === "win32"){
                 compileCommand = `ghc -o "${testsFolderPath}${outputFileName}.exe" "${solutionFilePath}" ${compilationFlags}`;

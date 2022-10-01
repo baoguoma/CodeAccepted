@@ -2,14 +2,14 @@ import * as vscode from "vscode";
 const fs = require("fs");
 import { Utils} from "../../utils/utils";
 import { platform } from "os";
-import { OS, generatorTemplate, CompilationLanguages, CodepalConfig, codepalConfigName } from "../../utils/consts";
+import { OS, generatorTemplate, CompilationLanguages, codeacceptedConfig, codeacceptedConfigName } from "../../utils/consts";
 import { getTemplateCode } from "../folder_creation/problem_folder_creation";
 import { readFileSync as fs_readFileSync } from "fs";
 
 export const getGenTemplateCode = async () => {
     const templatePath = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<string>(CodepalConfig.generatorTemplatePath);
+        .getConfiguration(codeacceptedConfigName)
+        .get<string>(codeacceptedConfig.generatorTemplatePath);
     let data = "";
     try {
         if (templatePath) {
@@ -31,8 +31,8 @@ export const createStressTestingFiles = async (filePath: string):Promise<void> =
     const testsFolderPath = problemFolderPath + "stress_tests/";
 
     const compilationLanguage = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.compilationLanguage);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.compilationLanguage);
     
 
     let fileExtension: string;

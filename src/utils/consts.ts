@@ -1,36 +1,36 @@
 import { hostname } from "os";
 
 export const enum Command {
-    helloWorld = "codepal.helloWorld",
+    helloWorld = "codeaccepted.helloWorld",
     setEditorLayout = "vscode.setEditorLayout",
     vscodeOpen = "vscode.open",
-    reloadProblems = "codepal.reloadProblems",
-    reloadContests = "codepal.reloadContests",
-    copyContestURL = "codepal.copyContestURL",
-    createContestDirectory = "codepal.createContestDirectory",
-    registerContest = "codepal.registerContest",
-    copyProblemURL = "codepal.copyProblemURL",
-    copyContestProblemURL = "codepal.copyContestProblemURL",
-    openContest = "codepal.openContest",
-    openProblemURL = "codepal.openProblemURL",
-    openContestProblem = "codepal.openContestProblem",
-    createProblemDirectory = "codepal.createProblemDirectory",
-    createContestProblemDirectory = "codepal.createContestProblemDirectory",
-    runTestCases = "codepal.runTestCases",
-    openProblemStatement = "codepal.openProblemStatement",
-    submitProblem = "codepal.submitProblem",
-    addTestCases = "codepal.addTestCases",
-    getProblemFilters = "codepal.getProblemFilters",
-    stressTest = "codepal.stressTest",
-    createStressTestingFiles = "codepal.createStressTestingFiles",
-    stopStressTesting = "codepal.stopStressTesting",
-    manualProblemFolderCreation = "codepal.manualProblemFolderCreation",
-    manualContestFolderCreation = "codepal.manualContestFolderCreation",
-    openAclDocumentation = "codepal.openAclDocumentation",
-    creatAclCombinedFile = "codepal.createAclCombinedFile"
+    reloadProblems = "codeaccepted.reloadProblems",
+    reloadContests = "codeaccepted.reloadContests",
+    copyContestURL = "codeaccepted.copyContestURL",
+    createContestDirectory = "codeaccepted.createContestDirectory",
+    registerContest = "codeaccepted.registerContest",
+    copyProblemURL = "codeaccepted.copyProblemURL",
+    copyContestProblemURL = "codeaccepted.copyContestProblemURL",
+    openContest = "codeaccepted.openContest",
+    openProblemURL = "codeaccepted.openProblemURL",
+    openContestProblem = "codeaccepted.openContestProblem",
+    createProblemDirectory = "codeaccepted.createProblemDirectory",
+    createContestProblemDirectory = "codeaccepted.createContestProblemDirectory",
+    runTestCases = "codeaccepted.runTestCases",
+    openProblemStatement = "codeaccepted.openProblemStatement",
+    submitProblem = "codeaccepted.submitProblem",
+    addTestCases = "codeaccepted.addTestCases",
+    getProblemFilters = "codeaccepted.getProblemFilters",
+    stressTest = "codeaccepted.stressTest",
+    createStressTestingFiles = "codeaccepted.createStressTestingFiles",
+    stopStressTesting = "codeaccepted.stopStressTesting",
+    manualProblemFolderCreation = "codeaccepted.manualProblemFolderCreation",
+    manualContestFolderCreation = "codeaccepted.manualContestFolderCreation",
+    openAclDocumentation = "codeaccepted.openAclDocumentation",
+    creatAclCombinedFile = "codeaccepted.createAclCombinedFile"
 }
-export const codepalConfigName = "codepal";
-export const enum CodepalConfig {
+export const codeacceptedConfigName = "codeaccepted";
+export const enum codeacceptedConfig {
     compilationLanguage = "compilationLanguage",
     codeTemplatePath = "codeTemplatePath",
     generatorTemplatePath = "generatorTemplatePath",
@@ -40,9 +40,9 @@ export const enum CodepalConfig {
     enableAclDocumentationButton = "enableAclDocumentationButton"
 }
 export const enum TreeViewIDs {
-    contests = "codepalContests",
-    problems = "codepalProblems",
-    profile = 'codepalProfile'
+    contests = "codeacceptedContests",
+    problems = "codeacceptedProblems",
+    profile = 'codeacceptedProfile'
 }
 export const enum SubmissionStatus {
     unattempted = "unattempted",

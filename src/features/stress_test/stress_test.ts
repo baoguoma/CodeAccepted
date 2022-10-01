@@ -1,37 +1,37 @@
 import * as vscode from "vscode";
 const fs = require("fs");
-import { Utils} from "../../utils/utils";
+import { Utils } from "../../utils/utils";
 import { platform } from "os";
-import { maxLimitOfTestCases, minLimitOfTestCases, OS,  CompilationLanguages, timeLimit} from "../../utils/consts";
+import { maxLimitOfTestCases, minLimitOfTestCases, OS, CompilationLanguages, timeLimit } from "../../utils/consts";
 import { compileAllFiles } from "./compile_all_files";
 import { compareOutputs, readFile } from "../run_test_cases/run_test_cases";
 import { runTestsWithTimeout } from "../run_test_cases/run_solution";
-import { CodepalConfig, codepalConfigName, stressTestingFlag } from "../../utils/consts";
+import { codeacceptedConfig, codeacceptedConfigName, stressTestingFlag } from "../../utils/consts";
 
-let numOfTestCases        : number;
-let testsFolderPath       : string;
-let solnOutputFilePath    : string;
-let solnStderrFilePath    : string;
-let brutePath             : string;
-let bruteOutputFilePath   : string;
-let bruteStderrFilePath   : string;
-let genPath               : string;
-let emptyInputFilePath    : string;
+let numOfTestCases: number;
+let testsFolderPath: string;
+let solnOutputFilePath: string;
+let solnStderrFilePath: string;
+let brutePath: string;
+let bruteOutputFilePath: string;
+let bruteStderrFilePath: string;
+let genPath: string;
+let emptyInputFilePath: string;
 let generatedInputFilePath: string;
-let genStderrFilePath     : string;
+let genStderrFilePath: string;
 
-const assignValuesToPath = async (solnPath: string):Promise<void> => {
+const assignValuesToPath = async (solnPath: string): Promise<void> => {
     numOfTestCases = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<number>(CodepalConfig.numberOfStressTestingTestCases, 100);
+        .getConfiguration(codeacceptedConfigName)
+        .get<number>(codeacceptedConfig.numberOfStressTestingTestCases, 100);
 
     let fileExtension: string;
 
     const compilationLanguage = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<String>(CodepalConfig.compilationLanguage);
+        .getConfiguration(codeacceptedConfigName)
+        .get<String>(codeacceptedConfig.compilationLanguage);
 
-    switch(compilationLanguage) {
+    switch (compilationLanguage) {
         case CompilationLanguages.gcc:
             fileExtension = 'c';
             break;
@@ -70,15 +70,15 @@ const assignValuesToPath = async (solnPath: string):Promise<void> => {
     brutePath = problemFolderPath + 'brute.' + fileExtension;
     bruteOutputFilePath = testsFolderPath + 'brute.txt';
     bruteStderrFilePath = testsFolderPath + 'brute_stderr.txt';
-    
-    genPath =  problemFolderPath + 'gen.' + fileExtension;
+
+    genPath = problemFolderPath + 'gen.' + fileExtension;
     emptyInputFilePath = testsFolderPath + 'empty.txt';
     generatedInputFilePath = `${testsFolderPath}gen.txt`;
     genStderrFilePath = `${testsFolderPath}gen_stderr.txt`;
 };
 
-export const stressTest = async (filePath: string):Promise<void> => {
-    const os = platform() === "win32"?OS.windows : OS.linuxMac;
+export const stressTest = async (filePath: string): Promise<void> => {
+    const os = platform() === "win32" ? OS.windows : OS.linuxMac;
 
     let solnPath = Utils.pathRefine(filePath, os);
 
@@ -91,23 +91,23 @@ export const stressTest = async (filePath: string):Promise<void> => {
 
     let successfulCompilation: boolean = await compileAllFiles(testsFolderPath, solnPath, brutePath, genPath);
 
-    if(!successfulCompilation){
+    if (!successfulCompilation) {
         vscode.window.showErrorMessage('Unable to stress test.');
         return;
     }
 
-    if(numOfTestCases >= maxLimitOfTestCases){
+    if (numOfTestCases >= maxLimitOfTestCases) {
         numOfTestCases = maxLimitOfTestCases;
     }
-    if(numOfTestCases <= minLimitOfTestCases){
+    if (numOfTestCases <= minLimitOfTestCases) {
         numOfTestCases = minLimitOfTestCases;
     }
 
-    let keyBinding:string = '';
-    if(platform() === "darwin"){ // Mac OS
+    let keyBinding: string = '';
+    if (platform() === "darwin") { // Mac OS
         keyBinding = "Cmd+Shift+z";
     }
-    else{ // Windows or Linux
+    else { // Windows or Linux
         keyBinding = "Ctrl+Shift+z";
     }
 
@@ -116,16 +116,16 @@ export const stressTest = async (filePath: string):Promise<void> => {
     let passed: boolean = true;
 
     while (i <= numOfTestCases) {
-        if(stressTestingFlag.stop === true){
+        if (stressTestingFlag.stop === true) {
             break;
         }
         const commandLineArguments: string = `${i}`;
 
-        vscode.window.setStatusBarMessage(`Running test case ${i}. Press ${keyBinding} to force stop Stress Testing`,timeLimit);
-        
+        vscode.window.setStatusBarMessage(`Running test case ${i}. Press ${keyBinding} to force stop Stress Testing`, timeLimit);
+
         try {
 
-            let runResultGen = await runTestsWithTimeout (
+            let runResultGen = await runTestsWithTimeout(
                 genPath,
                 emptyInputFilePath,
                 generatedInputFilePath,
@@ -135,7 +135,7 @@ export const stressTest = async (filePath: string):Promise<void> => {
                 'gen',
                 commandLineArguments
             );
-            let runResultBrute = await runTestsWithTimeout (
+            let runResultBrute = await runTestsWithTimeout(
                 brutePath,
                 generatedInputFilePath,
                 bruteOutputFilePath,
@@ -144,7 +144,7 @@ export const stressTest = async (filePath: string):Promise<void> => {
                 os,
                 'brute'
             );
-            let runResultSoln = await runTestsWithTimeout (
+            let runResultSoln = await runTestsWithTimeout(
                 solnPath,
                 generatedInputFilePath,
                 solnOutputFilePath,
@@ -166,15 +166,15 @@ export const stressTest = async (filePath: string):Promise<void> => {
             let input: string = await readFile(generatedInputFilePath);
             let expectedOutput: string = await readFile(bruteOutputFilePath);
             let codeOutput: string = await readFile(solnOutputFilePath);
-            let result : string = "";
-            if (testResult===true) {
+            let result: string = "";
+            if (testResult === true) {
                 result = result + `Test ${i} Passed\n\n`;
             }
             else {
                 result = result + `Test ${i} Failed\n\n`;
             }
             result = result + `Input ${i}: \n${input}\n\nBrute Force Output: \n${expectedOutput}\n\nObtained Output: \n${codeOutput}\n\n`;
-            
+
             result = result + "________________________________________________________\n\n";
             fs.writeFileSync(resultFilePath, result, (err: any) => {
                 if (err) {
@@ -201,7 +201,7 @@ export const stressTest = async (filePath: string):Promise<void> => {
         i++;
     }
 
-    if(stressTestingFlag.stop === true){
+    if (stressTestingFlag.stop === true) {
         vscode.window.showErrorMessage('Stress Testing interrupted');
         stressTestingFlag.stop = false;
     }
@@ -210,7 +210,7 @@ export const stressTest = async (filePath: string):Promise<void> => {
             `Solution matches with brute force for ${numOfTestCases} test cases.`,
         );
     }
-    else{
+    else {
         vscode.window.showInformationMessage(
             `In testcase ${i}, solution differs from brute force`
         );

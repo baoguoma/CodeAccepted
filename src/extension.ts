@@ -16,8 +16,8 @@ import { openProblemStatement } from "./features/open_problem_statement/open_pro
 import { openProblemURL } from "./features/open_problem_statement/open_problem_from_problem_list";
 import { openContest } from "./features/open_problem_statement/open_contest";
 import {
-    CodepalConfig,
-    codepalConfigName,
+    codeacceptedConfig,
+    codeacceptedConfigName,
     stressTestingFlag,
     Command,
     TreeViewIDs,
@@ -70,7 +70,7 @@ function returnWebview(param: any) {
 //
 
 function initExtensionPaths() {
-    let extensionPath: string | undefined = vscode.extensions.getExtension('kebin.peng.codepal')?.extensionUri.path;
+    let extensionPath: string | undefined = vscode.extensions.getExtension('kebin-peng.codeaccepted')?.extensionUri.path;
 
     //TODO: maybe take this from the user through setttings. They might have their own edited atcoder library version
     if (extensionPath !== undefined) {
@@ -85,11 +85,11 @@ function initExtensionPaths() {
         extensionPaths.libraryPath = extensionPath + '/res/library';
     }
     else {
-        vscode.window.showErrorMessage('Unable to get path of Codepal extension');
+        vscode.window.showErrorMessage('Unable to get path of codeaccepted extension');
     }
 };
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Congratulations, your extension "codepal" is now active!');
+    console.log('Congratulations, your extension "codeaccepted" is now active!');
     let disposable: vscode.Disposable[];
     const rootPath = vscode.workspace.workspaceFolders
         ? vscode.workspace.workspaceFolders[0].uri.fsPath + "/"
@@ -97,8 +97,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     initExtensionPaths();
     let aclSupportEnabled: boolean = vscode.workspace
-        .getConfiguration(codepalConfigName)
-        .get<boolean>(CodepalConfig.enableAclSupport, false);
+        .getConfiguration(codeacceptedConfigName)
+        .get<boolean>(codeacceptedConfig.enableAclSupport, false);
 
     const problemProvider = new ProblemsProvider(rootPath);
     const contestsProvider = new ContestsProvider(rootPath);
@@ -106,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.workspace.onDidChangeConfiguration((event) => {
         if (
             event.affectsConfiguration(
-                codepalConfigName + "." + CodepalConfig.codeforcesHandle
+                codeacceptedConfigName + "." + codeacceptedConfig.codeforcesHandle
             )
         ) {
             profileProvider.refresh();
@@ -115,7 +115,7 @@ export function activate(context: vscode.ExtensionContext) {
     disposable = [
         vscode.commands.registerCommand(Command.helloWorld, () => {
             vscode.window.showInformationMessage(
-                "Namaste World from IEEE/CodePal!"
+                "kebin peng for CodeAccepted!"
             );
         }),
     ];

@@ -278,7 +278,7 @@ const getDefaultTemplate = (lang) => {
 const getHostName = (raw = false) => {
 
     const _hostname = vscode.workspace
-        .getConfiguration("codepal")
+        .getConfiguration("codeaccepted")
         .get("hostname");
     console.log(_hostname);
     if (raw) return _hostname;

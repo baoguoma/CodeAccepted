@@ -2,7 +2,7 @@ import { platform } from "os";
 import * as vscode from "vscode";
 import * as fs from "fs";
 import { ProfileProvider } from "../../data_providers/user_profile/profile_data_provider";
-import { CodepalConfig, codepalConfigName, OS } from "../../utils/consts";
+import { codeacceptedConfig, codeacceptedConfigName, OS } from "../../utils/consts";
 import path = require("path");
 export const getUserHandle = async (profileProvider: ProfileProvider) => {
     let userHandle = await vscode.window.showInputBox({
@@ -39,12 +39,12 @@ export const getUserHandle = async (profileProvider: ProfileProvider) => {
                         console.log("written settings");
                     }
                     console.log("123");
-                    const jsonData =await JSON.parse(
+                    const jsonData = await JSON.parse(
                         fs.readFileSync(settingsPath).toString()
                     );
                     console.log(jsonData);
                     jsonData[
-                        `${codepalConfigName}.${CodepalConfig.codeforcesHandle}`
+                        `${codeacceptedConfigName}.${codeacceptedConfig.codeforcesHandle}`
                     ] = userHandle;
                     console.log(JSON.stringify(jsonData));
                     await fs.promises.writeFile(
