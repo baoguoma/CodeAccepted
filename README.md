@@ -1,7 +1,11 @@
-# CodePal 
+# CodeAccepted
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.png)](https://www.gnu.org/licenses/gpl-3.0)
-[![Downloads](https://img.shields.io/visual-studio-marketplace/d/IEEE-NITK.codepal)](https://marketplace.visualstudio.com/items?itemName=IEEE-NITK.codepal)
-[![](https://img.shields.io/visual-studio-marketplace/v/IEEE-NITK.codepal.png?color=green)](https://marketplace.visualstudio.com/items?itemName=IEEE-NITK.codepal) 
+<!-- [![Downloads](https://img.shields.io/visual-studio-marketplace/d/IEEE-NITK.codepal)](https://marketplace.visualstudio.com/items?itemName=IEEE-NITK.codepal)
+[![](https://img.shields.io/visual-studio-marketplace/v/IEEE-NITK.codepal.png?color=green)](https://marketplace.visualstudio.com/items?itemName=IEEE-NITK.codepal)  -->
+
+This extension is customized by using codepal (https://github.com/IEEE-NITK/CodePal) and Catalyst (https://github.com/RudreshVeerkhare/Catalyst). Much appriciate to the authors!
+
+I add log in and fetch probrlm function.
 
 A Visual Studio Code Extension to help **Codeforces** Users ***Code with Convenience.*** This extension is specially for people who want to save time in a live codeforces contest and upsolve problems comfortably. This extension responds quickly to users. It can swiftly filter through the problem list by specifying tags and ratings, create folders for contests and problems containing sample tests of each problem in them and compile and run tests automatically. It also enables you to open precise pages for viewing problems and submitting solutions.
 
@@ -42,11 +46,11 @@ A Visual Studio Code Extension to help **Codeforces** Users ***Code with Conveni
 # Languages Supported
 
 - C++ (compiler : g++)
-- C (compiler : gcc)
+<!-- - C (compiler : gcc) -->
 - Java (compiler : javac)
 - Python
-- Kotlin
-- Haskell (compiler: ghc) [stress testing is not supported]
+<!-- - Kotlin
+- Haskell (compiler: ghc) [stress testing is not supported] -->
 - Note : You may add additional compilation flags through the codepal settings (example : -std=c++14) and also choose between python, python2 or python3 depending upon the python command you use on your system to run.
 
 # Operating Systems Supported
@@ -169,12 +173,12 @@ Below are the various clickable icons used in our extension.
 ## Note
 Certain minor changes shall be documented in the usage guide in the next release. 
 
-# Contributing Guidelines
+<!-- # Contributing Guidelines
 <a id="contributing"></a>
 
-We're glad you'd like to contribute to CodePal. Please claim an issue from the issue list and you may then start working on it. You may also create a new issue incase you'd like to propose a new feature in the extension. Please refer [Developer Docs](DEVELOPERDOCS.md) for more help.
+We're glad you'd like to contribute to CodePal. Please claim an issue from the issue list and you may then start working on it. You may also create a new issue incase you'd like to propose a new feature in the extension. Please refer [Developer Docs](DEVELOPERDOCS.md) for more help. -->
 
-# Changelog 
+<!-- # Changelog 
 
 All notable changes to codepal can be found [here](CHANGELOG.md)
 
@@ -184,4 +188,4 @@ All notable changes to codepal can be found [here](CHANGELOG.md)
 - [Niranjan S Yadiyala](https://github.com/niranjansy)
 - [Praveen Reddy](https://github.com/lomadapraveenreddy)
 - [Chaithanya Shyam](https://github.com/Dragonado)
-- [Janmansh Agarwal](https://github.com/Janmansh)
+- [Janmansh Agarwal](https://github.com/Janmansh) -->
