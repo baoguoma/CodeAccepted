@@ -228,8 +228,8 @@
             "activitybar": [
                 {
                     "id": "codepal",
-                    "title": "CodePal",
-                    "icon": "res/svg/brackets.svg"
+                    "title": "CodeAccepted",
+                    "icon": "res/svg/path.svg"
                 }
             ]
         },
