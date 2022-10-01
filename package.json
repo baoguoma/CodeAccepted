@@ -5,9 +5,9 @@
     "license": "GPL-3.0-or-later",
     "repository": {
         "type": "git",
-        "url": "https://github.com/IEEE-NITK/CodePal"
+        "url": "https://github.com/baoguoma/CodeAccepted"
     },
-    "publisher": "IEEE-NITK",
+    "publisher": "kebin.peng",
     "icon": "res/svg/logo.png",
     "version": "1.7.0",
     "engines": {
@@ -535,7 +535,7 @@
         "@types/react": "^18.0.21",
         "@types/react-dom": "^18.0.6",
         "@types/selenium-webdriver": "^4.0.11",
-        "@types/vscode": "^1.71.0",
+        "@types/vscode": "^1.52.0",
         "@types/websocket": "^1.0.5",
         "@typescript-eslint/eslint-plugin": "^4.9.0",
         "@typescript-eslint/parser": "^4.9.0",

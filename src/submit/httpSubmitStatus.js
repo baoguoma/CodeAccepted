@@ -1,7 +1,6 @@
 const client = require("./client");
 const cheerio = require("cheerio");
 const pref = require("./preferences");
-const { VSCodeFilterProvider, vsdiag } = require("c:/users/kebin/.vscode/extensions/ms-vscode.cpptools-1.12.4-win32-x64/dist/main");
 const vscode = require("vscode");
 // get appropriate hostname
 const HOST = pref.getHostName();

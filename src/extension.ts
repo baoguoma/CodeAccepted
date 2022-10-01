@@ -70,7 +70,7 @@ function returnWebview(param: any) {
 //
 
 function initExtensionPaths() {
-    let extensionPath: string | undefined = vscode.extensions.getExtension('IEEE-NITK.codepal')?.extensionUri.path;
+    let extensionPath: string | undefined = vscode.extensions.getExtension('kebin.peng.codepal')?.extensionUri.path;
 
     //TODO: maybe take this from the user through setttings. They might have their own edited atcoder library version
     if (extensionPath !== undefined) {
@@ -177,7 +177,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             Command.openProblemURL,
             (param: ProblemTreeItem) => {
-                openProblemURL(param.problem);
+                //openProblemURL(param.problem);
                 const options = {
                     enableScripts: true
                 }
